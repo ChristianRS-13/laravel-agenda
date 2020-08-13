@@ -36,6 +36,9 @@
 
 					limpiarFormulario();
 					$('#txtFecha').val(info.dateStr)
+					$('#btnAgregar').prop('disabled', false);
+					$('#btnModificar').prop('disabled', true);
+					$('#btnEliminar').prop('disabled', true);
     				$('#myModal').modal('show')
 
     			},
@@ -64,6 +67,10 @@
 
     				$('#txtFecha').val(anio+"-"+mes+"-"+dia);
     				$('#txtHora').val(horario);
+
+					$('#btnAgregar').prop('disabled', true);
+					$('#btnModificar').prop('disabled', false);
+					$('#btnEliminar').prop('disabled', false);
 
     				$('#myModal').modal()	
     				
