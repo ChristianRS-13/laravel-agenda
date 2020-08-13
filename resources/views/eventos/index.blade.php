@@ -50,13 +50,20 @@
     				anio = (info.event.start.getFullYear());
     				mes = (info.event.start.getMonth()+1);    			
     				dia= (info.event.start.getDate());
-    				hora = (info.event.start.getHours()+":"+info.event.start.getMinutes());
+
+					minutos=info.event.start.getMinutes();
+					hora=info.event.start.getHours();
+
+					minutos=(minutos<10)?"0"+minutos:minutos;
+    				hora=(hora<10)?"0"+hora:hora;
+
+    				horario = (hora+":"+minutos);
 
     				mes=(mes<10)?"0"+mes:mes;
     				dia=(dia<10)?"0"+dia:dia;
 
     				$('#txtFecha').val(anio+"-"+mes+"-"+dia);
-    				$('#txtHora').val(hora);
+    				$('#txtHora').val(horario);
 
     				$('#myModal').modal()	
     				
@@ -123,7 +130,7 @@
 				$('#txtDescripcion').val("");
 				$('#txtColor').val("");
 				$('#txtFecha').val("");
-				$('#txtHora').val("");
+				$('#txtHora').val("07:00");
 
 			}
 
@@ -140,7 +147,7 @@
 			<div id="calendar"></div>			
 		</div>
 		<div class="col"></div>
-	</di>
+	</div>
 
 	{{-- Modal --}}
 	<div class="modal" tabindex="-1" role="dialog" id="myModal">
@@ -165,7 +172,7 @@
 		        
 		        <div class="form-group col-md-4">
 			        <label for="">Hora:</label>
-			        <input type="text" class="form-control" name="txtHora" id="txtHora">	        
+			        <input type="time" min="08:00" max="20:00" step="600" class="form-control" name="txtHora" id="txtHora">	        
 			    </div>
 
 			    <div class="form-group col-md-12">
